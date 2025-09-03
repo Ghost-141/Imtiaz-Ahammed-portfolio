@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Page Not Found</title>
+    <meta http-equiv="refresh" content="0; url=/imitaz-portfolio/">
+    <script>
+      // SPA GitHub Pages redirect (preserve path/query/hash)
+      // Based on https://github.com/rafgraph/spa-github-pages
+      (function(l) {
+        var repo = '/imitaz-portfolio';
+        var path = l.pathname;
+        if (!path.startsWith(repo)) { repo = ''; }
+        var newUrl = repo + '/' + (l.pathname + l.search + l.hash).replace(/^\/+/, '');
+        l.replace(newUrl);
+      })(window.location);
+    </script>
+  </head>
+  <body>
+    Redirecting...
+  </body>
+  </html>
+
