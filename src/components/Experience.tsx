@@ -12,10 +12,10 @@ const Experience = () => {
         
         <div className="max-w-4xl mx-auto">
           <div className="animate-fade-in-up-delay">
-            <div className="card-portfolio">
+            <div className="card-portfolio hover-pop-glow group border-white/10 hover:border-violet-400/40">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                 <div>
-                  <h3 className="text-xl font-bold text-foreground mb-1">
+                  <h3 className="text-xl font-bold text-foreground mb-1 opacity-80 transition-colors transition-opacity group-hover:opacity-100 group-hover:text-violet-200">
                     Software Engineering Intern (AI/ML)
                   </h3>
                   <p className="text-primary font-semibold text-lg">CloudlyIO</p>

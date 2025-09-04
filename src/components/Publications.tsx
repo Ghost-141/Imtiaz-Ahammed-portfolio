@@ -26,7 +26,7 @@ const Publications = () => {
           {publications.map((publication, index) => (
             <div
               key={publication.title}
-              className="animate-fade-in-up-delay card-portfolio"
+              className="animate-fade-in-up-delay card-portfolio hover-pop-glow group border-white/10 hover:border-violet-400/40"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
@@ -34,7 +34,7 @@ const Publications = () => {
                   <div className="flex items-start gap-3 mb-3">
                     <FileText className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
                     <div>
-                      <h3 className="text-lg font-bold text-foreground leading-tight mb-2">
+                      <h3 className="text-lg font-bold text-foreground leading-tight mb-2 transition-colors transition-opacity opacity-80 group-hover:opacity-100 group-hover:text-violet-200">
                         {publication.title}
                       </h3>
                       <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-sm text-muted-foreground">

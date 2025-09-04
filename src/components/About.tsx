@@ -13,7 +13,7 @@ const About = () => {
             <div className="card-portfolio max-w-3xl mx-auto text-center">
               <p className="text-lg leading-relaxed text-muted-foreground">
                 I am a recent graduate in <span className="text-primary font-semibold">Electrical & Electronic Engineering</span> with a major in <span className="text-primary font-semibold">AI & Robotics</span> from BRAC University. 
-                I'm passionate about artificial intelligence, deep learning, computer vision, and IoT applications. 
+                I am passionate about artificial intelligence, deep learning, computer vision, and IoT applications. 
                 My journey in technology is driven by a desire to create innovative solutions that bridge the gap between cutting-edge research and real-world applications.
               </p>
               <div className="mt-8 pt-6 border-t border-border">

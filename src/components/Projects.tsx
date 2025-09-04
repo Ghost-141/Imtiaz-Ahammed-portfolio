@@ -37,11 +37,11 @@ const Projects = () => {
             {projects.map((project, index) => (
               <div
                 key={project.title}
-                className="animate-fade-in-up-delay card-portfolio group"
+                className="animate-fade-in-up-delay card-portfolio hover-pop-glow group border-white/10 hover:border-violet-400/40"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="mb-4">
-                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                  <h3 className="text-xl font-bold text-foreground mb-3 transition-colors transition-opacity opacity-80 group-hover:opacity-100 group-hover:text-violet-200">
                     {project.title}
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">

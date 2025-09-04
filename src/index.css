@@ -149,6 +149,18 @@ All colors MUST be HSL for proper theming.
     box-shadow: var(--card-hover-shadow);
     transform: translateY(-2px);
   }
+
+  /* Test hover effect: pop + edge glow for a featured card */
+  .hover-pop-glow { transition: var(--transition-bounce); will-change: transform, box-shadow; }
+  /* Use a more specific selector to win over .card-portfolio:hover */
+  .card-portfolio.hover-pop-glow:hover {
+    transform: translateY(-6px) scale(1.02);
+    /* Edge glow + subtle inner outline */
+    box-shadow:
+      0 0 0 1px hsl(0 0% 100% / 0.06),
+      0 8px 24px hsl(258 85% 66% / 0.35),
+      0 0 40px hsl(217 91% 60% / 0.25);
+  }
   
   .btn-primary {
     @apply bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 rounded-lg font-semibold;
@@ -194,7 +206,7 @@ All colors MUST be HSL for proper theming.
       transform: translateY(0);
     }
   }
-  
+
   @keyframes slideInRight {
     from {
       opacity: 0;
@@ -204,5 +216,81 @@ All colors MUST be HSL for proper theming.
       opacity: 1;
       transform: translateX(0);
     }
+  }
+
+  /* Lively hero micro-interactions */
+  .text-shimmer {
+    background-size: 200% auto;
+    animation: shimmer 4s linear infinite;
+  }
+  @keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+
+  .avatar-glow { position: relative; display: inline-block; }
+  .avatar-glow::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 9999px;
+    background: conic-gradient(from 0deg, hsl(258 85% 66% / 0.30), hsl(191 90% 60% / 0.30), hsl(258 85% 66% / 0.30));
+    filter: blur(10px);
+    z-index: -1;
+    opacity: .8;
+    transition: opacity .3s ease;
+  }
+  .avatar-glow:hover::after { opacity: 1; }
+
+  .hover-tilt {
+    transform-style: preserve-3d;
+    transition: transform .35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  .hover-tilt:hover { transform: translateY(-4px) rotateX(3deg) rotateY(-3deg); }
+
+  .chip-hover { transition: transform .25s ease, filter .25s ease, background-color .25s ease; }
+  .chip-hover:hover, .chip-hover:focus-visible { transform: translateY(-2px); filter: hue-rotate(10deg) saturate(1.1); }
+
+  /* Radial spotlight behind hero heading */
+  .radial-spotlight {
+    background: radial-gradient(1200px 600px at 20% 20%, #a78bfa22, transparent 60%);
+    background-repeat: no-repeat;
+  }
+
+  /* Soft, low-amplitude bounce for accents */
+  .animate-bounce-soft {
+    animation: bounceSoft 1.8s ease-in-out infinite;
+  }
+  @keyframes bounceSoft {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .text-shimmer { animation: none; }
+    .hover-tilt:hover { transform: none; }
+    .chip-hover:hover, .chip-hover:focus-visible { transform: none; filter: none; }
+    .animate-bounce-soft { animation: none; }
+  }
+
+  /* Typing effect for short greetings like "Hi" */
+  .typing {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--caret-color, currentColor);
+    width: 0;
+    animation: typing var(--typing-duration, 1.2s) steps(var(--typing-steps, 2), end) var(--typing-delay, 0s) forwards;
+  }
+  .typing-no-caret { --caret-color: transparent; }
+  @keyframes typing {
+    0% { width: 0; border-right-color: var(--caret-color, currentColor); }
+    99% { border-right-color: var(--caret-color, currentColor); }
+    100% { width: var(--typing-width, 2ch); border-right-color: transparent; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .typing { animation: none; border-right: 0; width: var(--typing-width, auto); }
   }
 }

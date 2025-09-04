@@ -10,7 +10,7 @@ const Skills = () => {
       ],
     },
     {
-      title: "Machine Learning & AI",
+      title: "AI Framework",
       skills: [
         { name: "TensorFlow", icon: Database },
         { name: "PyTorch", icon: Database },
@@ -36,11 +36,8 @@ const Skills = () => {
       <div className="section-container">
         <div className="animate-fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-white">
-            My Expertise
-          </h2>
-          <h3 className="text-2xl md:text-3xl font-semibold text-center mb-8 text-orange-500">
             Technical Skills
-          </h3>
+          </h2>
           <p className="text-lg text-center mb-16 text-gray-300 max-w-4xl mx-auto leading-relaxed">
             With expertise across multiple domains, I bring a comprehensive skill set to tackle complex challenges in AI/ML, computer vision, and software engineering.
           </p>
@@ -51,10 +48,10 @@ const Skills = () => {
             {skillCategories.map((category, categoryIndex) => (
               <div
                 key={category.title}
-                className="animate-fade-in-up-delay"
+                className="animate-fade-in-up-delay card-portfolio hover-pop-glow group border-white/10 hover:border-sky-400/40"
                 style={{ animationDelay: `${categoryIndex * 0.2}s` }}
               >
-                <h4 className="text-2xl font-semibold mb-6 text-white">
+                <h4 className="text-2xl font-semibold mb-6 text-white opacity-90 transition-colors transition-opacity group-hover:text-sky-100 group-hover:opacity-100">
                   {category.title}
                 </h4>
                 <div className="flex flex-wrap gap-4">

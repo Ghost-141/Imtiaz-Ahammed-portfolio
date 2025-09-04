@@ -29,7 +29,7 @@ const Activities = () => {
           {activities.map((activity, index) => (
             <div
               key={activity.organization}
-              className="animate-fade-in-up-delay card-portfolio"
+              className="animate-fade-in-up-delay card-portfolio hover-pop-glow group border-white/10 hover:border-sky-400/40"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6">
@@ -38,7 +38,7 @@ const Activities = () => {
                     <Award className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-foreground mb-1">
+                    <h3 className="text-xl font-bold text-foreground mb-1 transition-colors transition-opacity opacity-90 group-hover:opacity-100 group-hover:text-sky-100">
                       {activity.role}
                     </h3>
                     <p className="text-primary font-semibold mb-2">

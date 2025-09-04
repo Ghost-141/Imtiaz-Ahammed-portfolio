@@ -41,23 +41,6 @@ const Footer = () => {
             ))}
           </div>
 
-          {/* Contact Info */}
-          <div className="mb-6">
-            <h3 className="text-lg font-semibold text-foreground mb-3">
-              Get In Touch
-            </h3>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-muted-foreground">
-              <a 
-                href="mailto:mdimtiazahammed@gmail.com"
-                className="hover:text-primary transition-colors"
-              >
-                mdimtiazahammed@gmail.com
-              </a>
-              <span className="hidden sm:inline">|</span>
-              <span>+88 01723397253</span>
-            </div>
-          </div>
-
           {/* Copyright */}
           <div className="pt-6 border-t border-border">
             <p className="text-sm text-muted-foreground flex items-center justify-center gap-1">
