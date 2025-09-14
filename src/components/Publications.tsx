@@ -26,7 +26,7 @@ const Publications = () => {
           {publications.map((publication, index) => (
             <div
               key={publication.title}
-              className="animate-fade-in-up-delay card-portfolio hover-pop-glow group border-white/10 hover:border-violet-400/40"
+              className="animate-fade-in-up-delay card-portfolio hover-pop-glow group border-white/10 hover:border-violet-400/40 transform-gpu transition-transform"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">

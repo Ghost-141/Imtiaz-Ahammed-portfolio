@@ -10,13 +10,14 @@ const Skills = () => {
       ],
     },
     {
-      title: "AI Framework",
+      title: "Libraries & Framework",
       skills: [
         { name: "TensorFlow", icon: Database },
         { name: "PyTorch", icon: Database },
         { name: "Scikit-learn", icon: Layers },
         { name: "OpenCV", icon: Eye },
         { name: "LangChain", icon: Link },
+        { name: "FastAPI", icon: Zap },
       ],
     },
     {
@@ -24,9 +25,7 @@ const Skills = () => {
       skills: [
         { name: "Git", icon: GitBranch },
         { name: "Docker", icon: Container },
-        { name: "FastAPI", icon: Zap },
         { name: "Anaconda", icon: Package },
-        { name: "Streamlit", icon: Rocket },
       ],
     },
   ];
@@ -39,7 +38,7 @@ const Skills = () => {
             Technical Skills
           </h2>
           <p className="text-lg text-center mb-16 text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            With expertise across multiple domains, I bring a comprehensive skill set to tackle complex challenges in AI/ML, computer vision, and software engineering.
+            With expertise across multiple domains, I bring a comprehensive skill set to tackle complex challenges in domain of AI, computer vision, and software engineering.
           </p>
         </div>
 
@@ -48,7 +47,7 @@ const Skills = () => {
             {skillCategories.map((category, categoryIndex) => (
               <div
                 key={category.title}
-                className="animate-fade-in-up-delay card-portfolio hover-pop-glow group border-white/10 hover:border-sky-400/40"
+                className="animate-fade-in-up-delay group"
                 style={{ animationDelay: `${categoryIndex * 0.2}s` }}
               >
                 <h4 className="text-2xl font-semibold mb-6 text-white opacity-90 transition-colors transition-opacity group-hover:text-sky-100 group-hover:opacity-100">
@@ -62,7 +61,7 @@ const Skills = () => {
                         key={skill.name}
                         className="px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg hover:bg-white/20 transition-all duration-300 flex items-center gap-3 group"
                       >
-                        <IconComponent className="w-5 h-5 text-orange-400 group-hover:text-orange-300 transition-colors" />
+                        <IconComponent className="w-5 h-5 text-sky-400 group-hover:text-sky-300 transition-colors" />
                         <span className="text-white font-medium">{skill.name}</span>
                       </div>
                     );

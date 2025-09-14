@@ -21,9 +21,20 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <span className="text-2xl font-bold text-blue-600">
-              Imtiaz Ahammed
-            </span>
+            <a href="#home" className="flex items-center gap-3 group" onClick={(e) => {
+              e.preventDefault();
+              document.querySelector('#home')?.scrollIntoView({ behavior: 'smooth' });
+            }}>
+              <img
+                src="/favicon.svg?v=3"
+                alt="IA logo"
+                className="w-10 h-10 md:w-12 md:h-12 rounded-full ring-1 ring-white/20 shadow-sm group-hover:ring-violet-400/40 transition-all"
+                decoding="async"
+              />
+              <span className="text-2xl font-bold text-white tracking-tight">
+                Imtiaz Ahammed
+              </span>
+            </a>
           </div>
 
           {/* Desktop Navigation */}

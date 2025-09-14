@@ -64,10 +64,10 @@ const Hero = () => {
         <div className="mb-8">
           <div className="flex flex-wrap gap-3 mb-6">
             {[
-              { label: "Machine Learning", color: "bg-emerald-500/20 text-emerald-100 border-emerald-400/30" },
-              { label: "Deep Learning", color: "bg-indigo-500/20 text-indigo-100 border-indigo-400/30" },
+              { label: "Deep Learning", color: "bg-emerald-500/20 text-emerald-100 border-emerald-400/30" },
+              { label: "Computer Vision", color: "bg-indigo-500/20 text-indigo-100 border-indigo-400/30" },
               { label: "RAG", color: "bg-rose-500/20 text-rose-100 border-rose-400/30" },
-              { label: "GenAI", color: "bg-amber-500/20 text-amber-100 border-amber-400/30" },
+              // { label: "GenAI", color: "bg-amber-500/20 text-amber-100 border-amber-400/30" },
             ].map((chip) => (
               <span
                 key={chip.label}

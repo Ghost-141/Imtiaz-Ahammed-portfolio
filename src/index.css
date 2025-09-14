@@ -129,6 +129,28 @@ All colors MUST be HSL for proper theming.
 
 @layer components {
   /* Portfolio Specific Components */
+  /* Headings: distinct fonts and styles */
+  .heading-featured {
+    @apply text-5xl md:text-6xl font-extrabold font-serif tracking-tight text-white;
+  }
+
+  .heading-cv {
+    /* Playfair Display with animated flowing gradient */
+    @apply text-3xl md:text-4xl font-bold uppercase tracking-widest bg-clip-text text-transparent;
+    font-family: 'Playfair Display', ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    background-image: linear-gradient(90deg, hsl(191 90% 75%), hsl(217 91% 70%), hsl(258 85% 66%));
+    background-size: 200% auto;
+    animation: shimmer 6s linear infinite;
+  }
+
+  .heading-genai {
+    /* Playfair Display + flowing gradient */
+    @apply text-3xl md:text-4xl font-bold uppercase tracking-widest bg-clip-text text-transparent;
+    font-family: 'Playfair Display', ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+    background-image: linear-gradient(90deg, hsl(258 85% 66%), hsl(302 73% 75%), hsl(203 92% 75%));
+    background-size: 200% auto;
+    animation: shimmer 6s linear infinite; /* slower flow */
+  }
   .hero-section {
     @apply relative overflow-hidden;
     background: var(--hero-gradient);
@@ -154,12 +176,12 @@ All colors MUST be HSL for proper theming.
   .hover-pop-glow { transition: var(--transition-bounce); will-change: transform, box-shadow; }
   /* Use a more specific selector to win over .card-portfolio:hover */
   .card-portfolio.hover-pop-glow:hover {
-    transform: translateY(-6px) scale(1.02);
+    transform: translateY(-6px) scale(1.02) !important;
     /* Edge glow + subtle inner outline */
     box-shadow:
       0 0 0 1px hsl(0 0% 100% / 0.06),
       0 8px 24px hsl(258 85% 66% / 0.35),
-      0 0 40px hsl(217 91% 60% / 0.25);
+      0 0 40px hsl(217 91% 60% / 0.25) !important;
   }
   
   .btn-primary {
