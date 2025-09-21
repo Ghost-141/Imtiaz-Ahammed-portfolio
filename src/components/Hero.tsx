@@ -26,7 +26,7 @@ const Hero = () => {
             <img
               src={profileImg}
               alt="Imtiaz Ahammed"
-              className="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover ring-4 ring-white/10 shadow-lg"
+              className="w-40 h-40 sm:w-48 sm:h-48 rounded-full object-cover ring-4 ring-white/10 shadow-lg"
               decoding="async"
             />
           </div>
