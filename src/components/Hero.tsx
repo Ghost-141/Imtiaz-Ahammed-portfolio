@@ -14,7 +14,7 @@ const MediumIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <circle cx="32" cy="12" r="5" fill="currentColor" />
   </svg>
 );
-import profileImg from "@/assets/imtiaz.jpg";
+import profileImg from "@/assets/Imtiaz2.jpg";
 
 const Hero = () => {
   return (
@@ -26,7 +26,7 @@ const Hero = () => {
             <img
               src={profileImg}
               alt="Imtiaz Ahammed"
-              className="w-40 h-40 sm:w-48 sm:h-48 rounded-full object-cover ring-4 ring-white/10 shadow-lg"
+              className="w-40 h-40 sm:w-48 sm:h-48 rounded-full object-cover object-[center_5%] ring-4 ring-white/10 shadow-lg"
               decoding="async"
             />
           </div>
@@ -122,3 +122,5 @@ const Hero = () => {
 };
 
 export default Hero;
+
+

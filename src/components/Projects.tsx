@@ -12,6 +12,7 @@ const Projects = () => {
         "Utilized yolov8 and opencv to detect and count car from real time video feed. Utilized tracking algorithm to keep track of cars across frames.",
       technologies: ["Python", "OpenCV", "Computer Vision", "Object Detection"],
       githubUrl: "https://github.com/Ghost-141/Car_Detection_Counter",
+      demoUrl: "https://github.com/Ghost-141/Car_Detection_Counter",
     },
 
     {
@@ -20,6 +21,7 @@ const Projects = () => {
         "Utilized yolov11 and opencv to clasify cars across different objects and fine-tuned yolov11 fol license plate detection. Along with these, used ocr to extract text from the detected license plate.",
       technologies: ["Python", "OpenCV", "Object Detection"],
       githubUrl: "https://github.com/Ghost-141/Car-Numb-Plate-Detection-Extraction",
+      demoUrl: "https://github.com/Ghost-141/Car-Numb-Plate-Detection-Extraction",
     },
 
     {
@@ -28,6 +30,7 @@ const Projects = () => {
         "Custom deep learning model for medical image classification to detect lung and colon cancer from histopathological images. Achieved high accuracy using advanced CNN architectures.",
       technologies: ["Python", "PyTorch", "Deep Learning", "Medical Imaging"],
       githubUrl: "https://github.com/Ghost-141/Lung_Colon_Cancer_Classification_with_CNN",
+      demoUrl: "https://github.com/Ghost-141/Lung_Colon_Cancer_Classification_with_CNN",
     }
 
   ];
@@ -42,6 +45,7 @@ const Projects = () => {
         "Intelligent question-answering system using Retrieval Augmented Generation for uploaded documents. Built with LangChain and Streamlit for seamless document analysis.",
       technologies: ["LangChain", "RAG", "Streamlit", "Python"],
       githubUrl: "https://github.com/Ghost-141/PDF-QA-System",
+      demoUrl: "https://github.com/Ghost-141/PDF-QA-System",
     },
 
     {
@@ -50,6 +54,7 @@ const Projects = () => {
         "Intelligent question-answering system using Retrieval Augmented Generation focusing on Bangla Language. Built with LangChain and Streamlit for seamless document analysis.",
       technologies: ["LangChain", "RAG", "Streamlit", "NLP", "Python"],
       githubUrl: "https://github.com/Ghost-141/Bangla-Rag-Based-QA-System",
+      demoUrl: "https://github.com/Ghost-141/Bangla-Rag-Based-QA-System",
     },
 
   ];
@@ -95,6 +100,16 @@ const Projects = () => {
                 </div>
 
                 <div className="flex items-center gap-3 mt-auto">
+                  <Button
+                    size="sm"
+                    className="flex items-center gap-2 text-xs"
+                    asChild
+                  >
+                    <a href={project.demoUrl ?? project.githubUrl} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="w-3 h-3" />
+                      View Demo
+                    </a>
+                  </Button>
                   <Button
                     variant="outline"
                     size="sm"
@@ -142,6 +157,16 @@ const Projects = () => {
                 </div>
 
                 <div className="flex items-center gap-3 mt-auto">
+                  <Button
+                    size="sm"
+                    className="flex items-center gap-2 text-xs"
+                    asChild
+                  >
+                    <a href={project.demoUrl ?? project.githubUrl} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="w-3 h-3" />
+                      View Demo
+                    </a>
+                  </Button>
                   <Button
                     variant="outline"
                     size="sm"
