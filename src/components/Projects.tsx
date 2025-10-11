@@ -1,10 +1,13 @@
+import { useMemo, useState } from "react";
 import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+type FilterValue = "all" | "cv" | "genai";
+
 const Projects = () => {
+  const [activeFilter, setActiveFilter] = useState<FilterValue>("all");
 
   /// Compute Vision Projects
-
   const cvProjects = [
     {
       title: "Multi-Lane Car Classificaiton & Counting",
@@ -59,6 +62,18 @@ const Projects = () => {
 
   ];
 
+  const filterOptions = useMemo(
+    () => [
+      { label: "All", value: "all" as FilterValue, count: cvProjects.length + genAIProjects.length },
+      { label: "Computer Vision", value: "cv" as FilterValue, count: cvProjects.length },
+      { label: "Generative AI", value: "genai" as FilterValue, count: genAIProjects.length },
+    ],
+    [cvProjects.length, genAIProjects.length]
+  );
+
+  const shouldShowCV = activeFilter === "all" || activeFilter === "cv";
+  const shouldShowGenAI = activeFilter === "all" || activeFilter === "genai";
+
   return (
     <section className="py-16">
       <div className="section-container">
@@ -68,120 +83,139 @@ const Projects = () => {
           </h2>
         </div>
 
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {filterOptions.map((filter) => (
+            <Button
+              key={filter.value}
+              type="button"
+              variant={activeFilter === filter.value ? "default" : "outline"}
+              size="sm"
+              className="transition-transform hover:scale-105"
+              onClick={() => setActiveFilter(filter.value)}
+              aria-pressed={activeFilter === filter.value}
+            >
+              {filter.label}
+              <span className="ml-2 rounded-full bg-background/40 px-2 py-0.5 text-xs">
+                {filter.count}
+              </span>
+            </Button>
+          ))}
+        </div>
+
         <div className="max-w-6xl mx-auto">
-          {/* Computer Vision Section */}
-          <div className="animate-fade-in-up">
-            <h3 className="heading-cv text-center mb-8">Computer Vision</h3>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {cvProjects.map((project, index) => (
-              <div
-                key={project.title}
-                className="animate-fade-in-up-delay card-portfolio hover-pop-glow group border-white/10 hover:border-violet-400/40 transform-gpu transition-transform h-full flex flex-col"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="mb-4">
-                  <h3 className="text-xl font-bold text-foreground mb-3 transition-colors transition-opacity opacity-80 group-hover:opacity-100 group-hover:text-violet-200">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
+          {shouldShowCV && (
+            <>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                {cvProjects.map((project, index) => (
+                  <div
+                    key={project.title}
+                    className="animate-fade-in-up-delay card-portfolio hover-pop-glow group border-white/10 hover:border-violet-400/40 h-full flex flex-col"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <div className="mb-4">
+                      <h3 className="text-xl font-bold text-foreground mb-3 transition-colors transition-opacity opacity-80 group-hover:opacity-100 group-hover:text-violet-200">
+                        {project.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {project.description}
+                      </p>
+                    </div>
 
-                <div className="mb-6">
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech) => (
-                      <span key={tech} className="skill-tag text-xs">
-                        {tech}
-                      </span>
-                    ))}
+                    <div className="mb-6">
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.map((tech) => (
+                          <span key={tech} className="skill-tag text-xs">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 mt-auto">
+                      <Button
+                        size="sm"
+                        className="flex items-center gap-2 text-xs"
+                        asChild
+                      >
+                        <a href={project.demoUrl ?? project.githubUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-3 h-3" />
+                          View Demo
+                        </a>
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex items-center gap-2 text-xs"
+                        asChild
+                      >
+                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                          <Github className="w-3 h-3" />
+                          View Code
+                        </a>
+                      </Button>
+                    </div>
                   </div>
-                </div>
-
-                <div className="flex items-center gap-3 mt-auto">
-                  <Button
-                    size="sm"
-                    className="flex items-center gap-2 text-xs"
-                    asChild
-                  >
-                    <a href={project.demoUrl ?? project.githubUrl} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-3 h-3" />
-                      View Demo
-                    </a>
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="flex items-center gap-2 text-xs"
-                    asChild
-                  >
-                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                      <Github className="w-3 h-3" />
-                      View Code
-                    </a>
-                  </Button>
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </>
+          )}
 
-          {/* Generative AI Section */}
-          <div className="animate-fade-in-up">
-            <h3 className="heading-genai text-center mb-8">Generative AI</h3>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {genAIProjects.map((project, index) => (
-              <div
-                key={project.title}
-                className="animate-fade-in-up-delay card-portfolio hover-pop-glow group border-white/10 hover:border-violet-400/40 transform-gpu transition-transform h-full flex flex-col"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="mb-4">
-                  <h3 className="text-xl font-bold text-foreground mb-3 transition-colors transition-opacity opacity-80 group-hover:opacity-100 group-hover:text-violet-200">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
+          {shouldShowGenAI && (
+            <>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {genAIProjects.map((project, index) => (
+                  <div
+                    key={project.title}
+                    className="animate-fade-in-up-delay card-portfolio hover-pop-glow group border-white/10 hover:border-violet-400/40 h-full flex flex-col"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <div className="mb-4">
+                      <h3 className="text-xl font-bold text-foreground mb-3 transition-colors transition-opacity opacity-80 group-hover:opacity-100 group-hover:text-violet-200">
+                        {project.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm leading-relaxed">
+                        {project.description}
+                      </p>
+                    </div>
 
-                <div className="mb-6">
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech) => (
-                      <span key={tech} className="skill-tag text-xs">
-                        {tech}
-                      </span>
-                    ))}
+                    <div className="mb-6">
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.map((tech) => (
+                          <span key={tech} className="skill-tag text-xs">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-3 mt-auto">
+                      <Button
+                        size="sm"
+                        className="flex items-center gap-2 text-xs"
+                        asChild
+                      >
+                        <a href={project.demoUrl ?? project.githubUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-3 h-3" />
+                          View Demo
+                        </a>
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex items-center gap-2 text-xs"
+                        asChild
+                      >
+                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                          <Github className="w-3 h-3" />
+                          View Code
+                        </a>
+                      </Button>
+                    </div>
                   </div>
-                </div>
-
-                <div className="flex items-center gap-3 mt-auto">
-                  <Button
-                    size="sm"
-                    className="flex items-center gap-2 text-xs"
-                    asChild
-                  >
-                    <a href={project.demoUrl ?? project.githubUrl} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="w-3 h-3" />
-                      View Demo
-                    </a>
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="flex items-center gap-2 text-xs"
-                    asChild
-                  >
-                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                      <Github className="w-3 h-3" />
-                      View Code
-                    </a>
-                  </Button>
-                </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </>
+          )}
         </div>
       </div>
     </section>

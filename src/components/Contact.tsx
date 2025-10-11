@@ -88,7 +88,7 @@ const Contact = () => {
           <div className="grid md:grid-cols-2 gap-8">
             {/* Contact Information */}
             <div className="animate-fade-in-up-delay">
-              <div className="card-portfolio h-full">
+              <div className="card-portfolio hover-pop-glow group border-white/10 hover:border-violet-400/40 h-full">
                 <h3 className="text-xl font-semibold mb-6 text-foreground flex items-center gap-2">
                   <MessageCircle className="w-5 h-5 text-primary" />
                   Get In Touch
@@ -124,7 +124,7 @@ const Contact = () => {
             
             {/* Contact Form */}
             <div className="animate-fade-in-up-delay" style={{ animationDelay: "0.1s" }}>
-              <form onSubmit={handleSubmit(onSubmit)} className="card-portfolio h-full">
+              <form onSubmit={handleSubmit(onSubmit)} className="card-portfolio hover-pop-glow group border-white/10 hover:border-violet-400/40 h-full">
                 <h3 className="text-xl font-semibold mb-6 text-foreground flex items-center gap-2">
                   <Send className="w-5 h-5 text-primary" />
                   Send a Message

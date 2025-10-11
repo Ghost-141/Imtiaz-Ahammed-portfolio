@@ -1,31 +1,72 @@
-import { Code2, Database, Wrench, Server, FileText, GitBranch, Package, Layers, Eye, Link, Rocket, Container, Zap, Globe } from "lucide-react";
+import { Database } from "lucide-react";
+import {
+  SiPython,
+  SiC,
+  SiTensorflow,
+  SiPytorch,
+  SiScikitlearn,
+  SiOpencv,
+  SiLangchain,
+  SiFastapi,
+  SiMongodb,
+  SiGit,
+  SiDocker,
+  SiAnaconda,
+} from "react-icons/si";
+import type { CSSProperties, ComponentType } from "react";
+
+type SkillIconProps = {
+  className?: string;
+  color?: string;
+  style?: CSSProperties;
+};
+
+type SkillIcon = ComponentType<SkillIconProps>;
+
+type Skill = {
+  name: string;
+  icon: SkillIcon;
+  color?: string;
+};
+
+type SkillCategory = {
+  title: string;
+  skills: Skill[];
+};
 
 const Skills = () => {
-  const skillCategories = [
+  const skillCategories: SkillCategory[] = [
     {
       title: "Programming Languages",
       skills: [
-        { name: "Python", icon: Code2 },
-        { name: "C", icon: FileText },
+        { name: "Python", icon: SiPython, color: "#FFD343" },
+        { name: "C", icon: SiC, color: "#03599C" },
       ],
     },
     {
       title: "Libraries & Framework",
       skills: [
-        { name: "TensorFlow", icon: Database },
-        { name: "PyTorch", icon: Database },
-        { name: "Scikit-learn", icon: Layers },
-        { name: "OpenCV", icon: Eye },
-        { name: "LangChain", icon: Link },
-        { name: "FastAPI", icon: Zap },
+        { name: "TensorFlow", icon: SiTensorflow, color: "#FF6F00" },
+        { name: "PyTorch", icon: SiPytorch, color: "#EE4C2C" },
+        { name: "Scikit-learn", icon: SiScikitlearn, color: "#F7931E" },
+        { name: "OpenCV", icon: SiOpencv, color: "#5C3EE8" },
+        { name: "LangChain", icon: SiLangchain, color: "#0B6EFD" },
+        { name: "FastAPI", icon: SiFastapi, color: "#009688" },
+      ],
+    },
+    {
+      title: "Database",
+      skills: [
+        { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+        { name: "SQL", icon: Database, color: "#00758F" },
       ],
     },
     {
       title: "Development Tools",
       skills: [
-        { name: "Git", icon: GitBranch },
-        { name: "Docker", icon: Container },
-        { name: "Anaconda", icon: Package },
+        { name: "Git", icon: SiGit, color: "#F05032" },
+        { name: "Docker", icon: SiDocker, color: "#2496ED" },
+        { name: "Anaconda", icon: SiAnaconda, color: "#44A833" },
       ],
     },
   ];
@@ -56,12 +97,20 @@ const Skills = () => {
                 <div className="flex flex-wrap gap-4">
                   {category.skills.map((skill) => {
                     const IconComponent = skill.icon;
+                    const iconColor = skill.color ?? "#38bdf8";
+                    const iconStyles: CSSProperties | undefined = skill.color
+                      ? { color: iconColor, stroke: iconColor, fill: iconColor }
+                      : undefined;
                     return (
                       <div
                         key={skill.name}
                         className="px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg hover:bg-white/20 transition-all duration-300 flex items-center gap-3 group"
                       >
-                        <IconComponent className="w-5 h-5 text-sky-400 group-hover:text-sky-300 transition-colors" />
+                        <IconComponent
+                          className="w-5 h-5 transition-transform duration-300 group-hover:scale-110"
+                          color={iconColor}
+                          style={iconStyles}
+                        />
                         <span className="text-white font-medium">{skill.name}</span>
                       </div>
                     );

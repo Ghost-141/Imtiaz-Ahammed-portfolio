@@ -29,7 +29,7 @@ const Activities = () => {
           {activities.map((activity, index) => (
             <div
               key={activity.organization}
-              className="animate-fade-in-up-delay card-portfolio hover-pop-glow group border-white/10 hover:border-sky-400/40 transform-gpu transition-transform hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-[0_8px_24px_rgba(56,189,248,0.35),0_0_40px_rgba(56,189,248,0.25)]"
+              className="animate-fade-in-up-delay card-portfolio hover-pop-glow group border-white/10 hover:border-violet-400/40"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6">

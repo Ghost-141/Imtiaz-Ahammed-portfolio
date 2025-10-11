@@ -5,7 +5,7 @@ const About = () => {
         <div className="max-w-4xl mx-auto">
           <div className="animate-fade-in-up">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground">
-              Who Am I
+              Background
             </h2>
           </div>
 
